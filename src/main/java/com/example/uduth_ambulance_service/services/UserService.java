@@ -7,13 +7,15 @@ import java.util.Optional;
 
 public interface UserService {
 
-    public User createUser();
+    public User createUser(User user);
 
     public List<User> getAllUsers();
 
     public List<User> getUsersByType(String userType);
 
     public Optional<User> getUserByUsername(String username);
+
+    public User authenticate(String username , String password);
 
 
 

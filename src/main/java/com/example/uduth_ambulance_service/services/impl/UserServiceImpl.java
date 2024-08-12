@@ -14,31 +14,42 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
 
-
-
-
     @Autowired
     private UserRepo userRepo;
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public User createUser() {
-        return null;
+    public User createUser(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        return userRepo.save(user);
+
     }
 
     @Override
     public List<User> getAllUsers() {
-        return null;
+        return userRepo.findAll();
     }
 
     @Override
     public List<User> getUsersByType(String userType) {
-        return null;
+        return userRepo.findByUserType(userType);
     }
 
     @Override
     public Optional<User> getUserByUsername(String username) {
-        return Optional.empty();
+        return userRepo.findByUsername(username);
+    }
+
+    @Override
+    public User authenticate(String username, String password) {
+        Optional<User> optionalUser = userRepo.findByUsername(username);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            if (passwordEncoder.matches(password, user.getPassword())) {
+                return user;
+            }
+        }
+        return null;
     }
 }
