@@ -16,10 +16,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -34,6 +31,11 @@ public class AuthController {
     public ResponseEntity<User> createUser(@RequestBody User user) {
         User registeredUser = userService.createUser(user);
         return new ResponseEntity<>(registeredUser, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/init")
+    public  String initialTestRoute(){
+        return "<h1> Welcome To Uduth Ambulance Service Backend </h1>";
     }
     @PostMapping("/sign-in-account")
     public ResponseEntity<Void> SignInUser(@RequestBody LoginRecord loginRecord, HttpServletRequest request,
