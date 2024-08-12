@@ -20,7 +20,7 @@ public class Doctor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long doctorId;
     @NotNull(message = "First Name cannot be NULL")
-    @Column(nullable = false, name = "last_name")
+    @Column(nullable = false, name = "first_name")
     @Pattern(regexp = "[A-Za-z.\\s]+", message = "Enter valid characters in first name")
     private String firstName;
     @NotNull(message = "Last Name cannot be NULL")

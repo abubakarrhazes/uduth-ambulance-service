@@ -14,6 +14,7 @@ import lombok.*;
 @Builder
 public class Ambulance {
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ambulanceId;
 

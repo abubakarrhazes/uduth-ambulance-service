@@ -1,6 +1,7 @@
 package com.example.uduth_ambulance_service.services.impl;
 
 import com.example.uduth_ambulance_service.domain.User;
+import com.example.uduth_ambulance_service.mappers.enums.UserType;
 import com.example.uduth_ambulance_service.repos.UserRepo;
 import com.example.uduth_ambulance_service.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getUsersByType(String userType) {
+    public List<User> getUsersByType(UserType userType) {
         return userRepo.findByUserType(userType);
     }
 
