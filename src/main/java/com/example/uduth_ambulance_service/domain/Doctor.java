@@ -1,7 +1,6 @@
-package com.example.uduth_ambulance_service.models;
+package com.example.uduth_ambulance_service.domain;
 
 
-import com.example.uduth_ambulance_service.mappers.enums.Status;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -9,18 +8,17 @@ import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "staffs_tbl")
+@Table(name = "doctors_tbl")
 @Entity
 @Getter
 @Setter
 @Builder
 
-public class Staff {
+public class Doctor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long staffId;
-
+    private long doctorId;
     @NotNull(message = "First Name cannot be NULL")
     @Column(nullable = false, name = "last_name")
     @Pattern(regexp = "[A-Za-z.\\s]+", message = "Enter valid characters in first name")
@@ -29,13 +27,7 @@ public class Staff {
     @Column(nullable = false, name = "last_name")
     @Pattern(regexp = "[A-Za-z.\\s]+", message = "Enter valid characters in last name")
     private String lastName;
-    @NotNull(message = "Staff Speciality cannot be NULL")
-    @Column(nullable = false, name = "expertise")
-    private String expertise;
-
-
-    @NotNull(message = "Status cannot be null")
+    @NotNull(message = "Doctors Expertise cannot be NULL")
     @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    private String expertise;
 }

@@ -1,4 +1,4 @@
-package com.example.uduth_ambulance_service.models;
+package com.example.uduth_ambulance_service.domain;
 
 
 import com.example.uduth_ambulance_service.mappers.enums.Role;
@@ -6,7 +6,6 @@ import com.example.uduth_ambulance_service.mappers.enums.UserType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.time.LocalDateTime;

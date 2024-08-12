@@ -1,4 +1,4 @@
-package com.example.uduth_ambulance_service.models;
+package com.example.uduth_ambulance_service.domain;
 
 import com.example.uduth_ambulance_service.mappers.enums.Status;
 import jakarta.persistence.*;
