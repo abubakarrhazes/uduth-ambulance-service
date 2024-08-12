@@ -1,6 +1,7 @@
 package com.example.uduth_ambulance_service.domain;
 
 
+import com.example.uduth_ambulance_service.mappers.enums.Status;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -22,9 +23,11 @@ public class Ambulance {
     @Column(nullable = false, name = "plate_number" , unique = true)
     private String plateNumber;
 
-    @Column(nullable = false, name = "status")
+    @NotNull(message = "Status cannot be null")
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
-    private String status = "AVAILABLE";
     @Column(nullable = false, name = "location")
     private String location;
 

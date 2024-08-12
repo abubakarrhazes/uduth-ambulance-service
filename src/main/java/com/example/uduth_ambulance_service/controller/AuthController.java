@@ -4,6 +4,7 @@ package com.example.uduth_ambulance_service.controller;
 import com.example.uduth_ambulance_service.domain.User;
 import com.example.uduth_ambulance_service.mappers.dto.LoginRecord;
 import com.example.uduth_ambulance_service.services.UserService;
+import com.example.uduth_ambulance_service.services.impl.UserServiceImpl;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -25,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
     @Autowired
     private AuthenticationManager authenticationManager;
 

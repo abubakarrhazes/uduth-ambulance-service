@@ -19,5 +19,5 @@ public interface AmbulanceService {
 
     public RequestAmbulance getAmbulanceUsingIdAndUser(Long ambulanceId, String username);
 
-    public RequestAmbulance getAllAmbulanceRequests(Long ambulanceId);
+    public List<RequestAmbulance> getAllAmbulanceRequests();
 }

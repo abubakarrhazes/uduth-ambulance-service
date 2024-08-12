@@ -16,7 +16,7 @@ import lombok.*;
 public class RequestAmbulance {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long requestAmbulanceId;
 
     // Let Create a Join Column Relationship Here
